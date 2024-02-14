@@ -1,0 +1,15 @@
+### get hej
+GET http://localhost:3000/hej
+
+
+### create user
+POST http://localhost:3000/api/userAccount 
+Content-Type: application/json; charset=utf-8
+
+
+{
+    "firstName":"Stefan", 
+    "email":"hej@hopp.se", 
+    "password":"tjena"
+
+}
