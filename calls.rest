@@ -1,6 +1,9 @@
 ### get hej
 GET http://localhost:3000/hej
 
+### get test
+GET http://localhost:3000/test?name=Malin
+
 
 ### create user
 POST http://localhost:3000/api/userAccount 
@@ -13,3 +16,7 @@ Content-Type: application/json; charset=utf-8
     "password":"tjena"
 
 }
+
+
+
+### 
