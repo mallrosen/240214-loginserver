@@ -5,7 +5,8 @@ const cors = require("cors");
 const app = express();
 const port = 3000; // "Radiofrekvens"
 const session = require("express-session");
-
+const {check} = require('express-validator')
+//Det över, lägg till i check i post för test
 const { UserAccount } = require("./models");
 // const {onHej, onLogin} = require(./controllers/userController.js)
 const userController = require("./controllers/userController");
@@ -17,7 +18,7 @@ const migrationhelper = require("./migrationhelper");
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:5500",
     credentials: true,
   })
 );
@@ -42,10 +43,14 @@ app.post('/api/signin', userController.onLogin)
 //GET http://localhost:3000/test?name=Malin
 //som ligger i calls.rest är kopplat till den under
 
-app.get('/test', (req, res) => {
+
+//check kommer från det vi skapat i början, för att använda html-escape/unescape
+app.get('/test', check ('name').escape(), (req, res) => {
   const {name} = req.query;
   return res.send(`<html><body>Hello, ${name}!</body></html>`)
 })
+
+
 
 //session är en funktion () om man ser cookie längst ner är det ett objekt
 
